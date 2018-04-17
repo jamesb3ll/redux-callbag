@@ -18,7 +18,7 @@ const todos = (state = ['Callbags'], action) => {
   }
 }
 
-/* const delayEpic = (action$, store) => pipe(
+const delayEpic = (action$, store) => pipe(
   action$,
   ofType('ASYNC_TODO'),
   delay(1000),
@@ -26,9 +26,9 @@ const todos = (state = ['Callbags'], action) => {
     type: 'ADD_TODO',
     text: action.text + ' (delayed)',
   })),
-); */
+);
 
-/* const ajaxEpic = (action$, store) => pipe(
+const ajaxEpic = (action$, store) => pipe(
   action$,
   ofType('AJAX_TODO'),
   mapPromise(action =>
@@ -39,13 +39,13 @@ const todos = (state = ['Callbags'], action) => {
     type: 'ADD_TODO',
     text: data.title,
   })),
-) */
+)
 
 const store = createStore(
   todos,
-  /* applyMiddleware(
+  applyMiddleware(
     createCallbagMiddleware(delayEpic, ajaxEpic),
-  ), */
+  ),
 );
 
 ReactDOM.render(
